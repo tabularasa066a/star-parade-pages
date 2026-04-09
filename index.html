@@ -61,12 +61,13 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 16px;
+      gap: 12px;
       flex-wrap: wrap;
     }
     .store-badge { display: inline-block; transition: transform 0.15s, opacity 0.15s; }
     .store-badge:hover { transform: translateY(-2px); opacity: 0.85; }
-    .store-badge img { height: 48px; }
+    .store-badge img.badge-appstore { height: 52px; }
+    .store-badge img.badge-googleplay { height: 76px; margin: -12px 0; }
 
     /* Sections */
     .section { max-width: 800px; margin: 0 auto; padding: 64px 24px; }
@@ -192,11 +193,13 @@
       <div class="store-badges">
         <!-- TODO: ストア公開後に実際のURLに差し替え -->
         <a href="#" class="store-badge">
-          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+          <img class="badge-appstore"
+               src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
                alt="App Storeからダウンロード">
         </a>
         <a href="#" class="store-badge">
-          <img src="https://play.google.com/intl/en_us/badges/static/images/badges/ja_badge_web_generic.png"
+          <img class="badge-googleplay"
+               src="https://play.google.com/intl/en_us/badges/static/images/badges/ja_badge_web_generic.png"
                alt="Google Playで手に入れよう">
         </a>
       </div>
