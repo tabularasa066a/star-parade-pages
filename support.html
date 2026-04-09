@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>サポート - Star Parade</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0A0A1A;
+      color: #E0E0E0;
+      line-height: 1.8;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 48px 24px; }
+    h1 { font-size: 1.8em; margin-bottom: 24px; color: #fff; }
+    h2 { font-size: 1.15em; margin-top: 36px; margin-bottom: 10px; color: #0A84FF; border-bottom: 1px solid #1C1C2E; padding-bottom: 6px; }
+    p { margin-bottom: 14px; font-size: 0.95em; }
+    li { margin-bottom: 8px; font-size: 0.95em; }
+    ul { margin-left: 20px; margin-bottom: 16px; }
+    a { color: #0A84FF; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .back { margin-top: 48px; }
+    .faq-item { background: #12122A; border: 1px solid #1C1C3A; border-radius: 10px; padding: 18px 20px; margin-bottom: 12px; }
+    .faq-q { color: #fff; font-weight: 600; font-size: 0.95em; margin-bottom: 8px; }
+    .faq-a { color: #aaa; font-size: 0.9em; line-height: 1.7; }
+    .contact-box {
+      background: #12122A;
+      border: 1px solid #1C1C3A;
+      border-radius: 12px;
+      padding: 24px;
+      margin-top: 16px;
+    }
+    .contact-box p { margin-bottom: 8px; }
+    .info-table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 0.9em; }
+    .info-table td { padding: 6px 0; border-bottom: 1px solid #1C1C2E; }
+    .info-table td:first-child { color: #8E8E93; width: 120px; }
+    footer { margin-top: 64px; color: #555; font-size: 0.8em; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>サポート</h1>
+
+    <h2>よくある質問</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">Q. オフラインで使えますか?</div>
+      <div class="faq-a">はい。Star Parade はすべての星表データ(9,096星)・星座データ・惑星軌道要素・計算ロジックをアプリに内蔵しています。インターネット接続なしで全機能が動作します。山岳地帯・離島・キャンプ場・飛行機内でも問題ありません。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Q. 位置情報の許可は必要ですか?</div>
+      <div class="faq-a">正確な星の位置表示のためにGPSの使用を推奨しますが、許可しなくても動作します。デフォルトの位置(東京)が使用されます。設定画面から手動で緯度・経度を変更することも可能です。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Q. 星の位置がずれて表示されます</div>
+      <div class="faq-a">磁気センサのキャリブレーションが必要な場合があります。端末を8の字に数回振ってください。また、金属物や電子機器の近くでは磁気センサの精度が低下します。屋外の開けた場所でお試しください。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Q. Proプランを購入したのに広告が表示されます</div>
+      <div class="faq-a">設定画面の「購入を復元」ボタンをタップしてください。購入状態がApp Store / Google Playから再取得されます。解決しない場合はアプリを再起動してお試しください。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Q. 機種変更してもProプランは引き継がれますか?</div>
+      <div class="faq-a">はい。Proプランは買い切り型(Non-consumable)です。同じApple IDまたはGoogleアカウントでサインインしている端末であれば、設定画面の「購入を復元」から再度有効化できます。アカウント登録は不要です。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Q. バッテリー消費が気になります</div>
+      <div class="faq-a">センサー(加速度・ジャイロ・磁気)を常時使用するため、通常のアプリよりバッテリー消費が多くなります。画面の明るさを下げる、ナイトモードを使用する、等級フィルターで表示星数を減らすなどの方法で軽減できます。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Q. ダブルタップしたら星空が動かなくなりました</div>
+      <div class="faq-a">センサーロックモードが有効になっています。ダブルタップでセンサー連動が一時停止し、手動スワイプで自由に星空を探索できるモードです。画面上部にロックアイコンが表示されます。再度ダブルタップで解除されます。</div>
+    </div>
+
+    <h2>お問い合わせ</h2>
+
+    <div class="contact-box">
+      <p>バグ報告・機能リクエスト・その他のお問い合わせ:</p>
+      <ul>
+        <li>GitHub Issues: <a href="https://github.com/YOUR_USERNAME/star-parade-pages/issues" target="_blank" rel="noopener">star-parade-pages/issues</a></li>
+        <li>メール: <a href="mailto:support@example.com">support@example.com</a></li>
+      </ul>
+      <p style="color: #8E8E93; font-size: 0.85em;">お問い合わせの際は、端末の機種名・OSバージョン・アプリバージョンをお知らせいただけると迅速に対応できます。</p>
+    </div>
+
+    <h2>アプリ情報</h2>
+    <table class="info-table">
+      <tr><td>アプリ名</td><td>Star Parade</td></tr>
+      <tr><td>バージョン</td><td>1.0.0</td></tr>
+      <tr><td>対応 OS</td><td>iOS 15.0 以上 / Android 8.0 以上</td></tr>
+      <tr><td>カテゴリ</td><td>教育 / 天文学</td></tr>
+      <tr><td>価格</td><td>無料 (Pro: &#165;700 買い切り)</td></tr>
+    </table>
+
+    <p class="back"><a href="index.html">&larr; トップに戻る</a></p>
+
+    <footer>
+      <p>&copy; 2026 Star Parade. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>

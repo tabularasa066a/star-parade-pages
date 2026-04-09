@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Star Parade - スマホをかざして、今夜の星を見つけよう</title>
+  <meta name="description" content="Star Parade は端末をかざすだけで星・星座・惑星をリアルタイム表示する AR 星空観察アプリ。9,000以上の恒星データを内蔵し、完全オフラインで動作します。">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0A0A1A;
+      color: #E0E0E0;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 80px 24px 60px;
+      background: linear-gradient(180deg, #0A0A2E 0%, #0A0A1A 100%);
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(1px 1px at 10% 20%, #fff 50%, transparent 100%),
+        radial-gradient(1px 1px at 30% 65%, #fff 50%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 55% 15%, #FFD60A 50%, transparent 100%),
+        radial-gradient(1px 1px at 70% 40%, #fff 50%, transparent 100%),
+        radial-gradient(1px 1px at 85% 70%, #fff 50%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 20% 80%, #8BB8FF 50%, transparent 100%),
+        radial-gradient(1px 1px at 45% 50%, #fff 50%, transparent 100%),
+        radial-gradient(1px 1px at 90% 10%, #fff 50%, transparent 100%),
+        radial-gradient(1px 1px at 60% 85%, #fff 50%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 5% 45%, #fff 50%, transparent 100%);
+      opacity: 0.4;
+      pointer-events: none;
+    }
+    .hero h1 {
+      font-size: 3em;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #fff;
+      position: relative;
+    }
+    .hero .tagline {
+      font-size: 1.15em;
+      color: #8E8E93;
+      margin-top: 12px;
+      position: relative;
+    }
+    .hero .cta {
+      margin-top: 36px;
+      position: relative;
+    }
+    .hero .cta a {
+      display: inline-block;
+      padding: 14px 36px;
+      border-radius: 28px;
+      font-size: 1em;
+      font-weight: 600;
+      text-decoration: none;
+      margin: 0 8px;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .hero .cta a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.4); }
+    .btn-primary { background: #0A84FF; color: #fff; }
+    .btn-secondary { background: #1C1C2E; color: #0A84FF; border: 1px solid #2C2C3E; }
+
+    /* Sections */
+    .section { max-width: 800px; margin: 0 auto; padding: 64px 24px; }
+    .section h2 {
+      font-size: 1.6em;
+      color: #fff;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+    .section .lead { color: #8E8E93; margin-bottom: 32px; font-size: 0.95em; }
+
+    /* Features */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .feature-card {
+      background: #12122A;
+      border: 1px solid #1C1C3A;
+      border-radius: 14px;
+      padding: 24px;
+      transition: border-color 0.2s;
+    }
+    .feature-card:hover { border-color: #0A84FF; }
+    .feature-icon { font-size: 1.6em; margin-bottom: 10px; }
+    .feature-card h3 { font-size: 1em; color: #fff; margin-bottom: 6px; }
+    .feature-card p { font-size: 0.88em; color: #999; line-height: 1.6; }
+
+    /* Numbers */
+    .numbers {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 16px;
+      text-align: center;
+      margin-top: 8px;
+    }
+    .number-item .num { font-size: 2.2em; font-weight: 700; color: #FFD60A; }
+    .number-item .label { font-size: 0.82em; color: #8E8E93; margin-top: 2px; }
+
+    /* Tech */
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .tech-card {
+      background: #12122A;
+      border: 1px solid #1C1C3A;
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .tech-card h3 { font-size: 0.9em; color: #0A84FF; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.04em; }
+    .tech-card p { font-size: 0.88em; color: #aaa; line-height: 1.6; }
+
+    /* Plans */
+    .plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .plan-card {
+      background: #12122A;
+      border: 1px solid #1C1C3A;
+      border-radius: 14px;
+      padding: 28px;
+      position: relative;
+    }
+    .plan-card.pro { border-color: #FFD60A; }
+    .plan-card.pro::after {
+      content: 'RECOMMENDED';
+      position: absolute;
+      top: -10px;
+      right: 16px;
+      background: #FFD60A;
+      color: #000;
+      font-size: 0.65em;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 8px;
+      letter-spacing: 0.05em;
+    }
+    .plan-name { font-size: 1.3em; color: #fff; font-weight: 600; }
+    .plan-price { font-size: 1.8em; color: #FFD60A; font-weight: 700; margin: 8px 0 4px; }
+    .plan-price span { font-size: 0.45em; color: #8E8E93; font-weight: 400; }
+    .plan-desc { font-size: 0.85em; color: #8E8E93; margin-bottom: 16px; }
+    .plan-features { list-style: none; }
+    .plan-features li { font-size: 0.88em; color: #ccc; padding: 4px 0; }
+    .plan-features li::before { content: '\2713\00a0'; color: #34C759; }
+
+    /* Divider */
+    .divider { border: none; border-top: 1px solid #1C1C3A; margin: 0; }
+
+    /* Footer */
+    footer {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 24px;
+      text-align: center;
+    }
+    footer .links { margin-bottom: 16px; }
+    footer .links a {
+      color: #0A84FF;
+      text-decoration: none;
+      margin: 0 12px;
+      font-size: 0.9em;
+    }
+    footer .links a:hover { text-decoration: underline; }
+    footer .copy { color: #555; font-size: 0.78em; }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2.2em; }
+      .hero .cta a { display: block; margin: 8px auto; max-width: 260px; }
+      .section { padding: 48px 20px; }
+      .features { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <div class="hero">
+    <h1>Star Parade</h1>
+    <p class="tagline">スマホをかざして、今夜の星を見つけよう</p>
+    <div class="cta">
+      <a href="#" class="btn-primary">App Store</a>
+      <a href="#" class="btn-secondary">Google Play</a>
+    </div>
+  </div>
+
+  <!-- Numbers -->
+  <div class="section">
+    <div class="numbers">
+      <div class="number-item">
+        <div class="num">9,096</div>
+        <div class="label">恒星データ</div>
+      </div>
+      <div class="number-item">
+        <div class="num">88</div>
+        <div class="label">星座</div>
+      </div>
+      <div class="number-item">
+        <div class="num">6</div>
+        <div class="label">惑星</div>
+      </div>
+      <div class="number-item">
+        <div class="num">60fps</div>
+        <div class="label">リアルタイム描画</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Features -->
+  <div class="section">
+    <h2>Features</h2>
+    <p class="lead">かざすだけで星がわかる。シンプルで、パワフル。</p>
+    <div class="features">
+      <div class="feature-card">
+        <div class="feature-icon">&#x1F30C;</div>
+        <h3>AR スカイビュー</h3>
+        <p>端末のセンサーと連動し、かざした方向の星空をリアルタイム表示。直感的な操作で夜空を探索できます。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#x2B50;</div>
+        <h3>9,096 恒星データ</h3>
+        <p>Yale Bright Star Catalogue (BSC5) の全データを内蔵。等級・スペクトル型・距離・B-V色指数まで収録。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#x2728;</div>
+        <h3>88 星座表示</h3>
+        <p>IAU公式の全88星座の線画と日本語/英語名を表示。星空のどこに何座があるか一目でわかります。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#x1FA90;</div>
+        <h3>惑星位置計算</h3>
+        <p>水星から土星まで6惑星の位置をケプラー軌道要素からリアルタイムで算出。NASA JPL の精密データに基づきます。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#x1F50D;</div>
+        <h3>検索 &amp; ナビゲーション</h3>
+        <p>星名・星座名で検索し、画面上の矢印ガイドで目標の天体まで誘導。目当ての星をすぐに見つけられます。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#x23F0;</div>
+        <h3>時刻シミュレーション</h3>
+        <p>スライダーで日時を自由に変更。昨夜の星空も、来月の星空も、好きな時刻の空を再現できます。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#x1F4F4;</div>
+        <h3>完全オフライン動作</h3>
+        <p>全データ・全計算を端末内で完結。山岳地帯、離島、キャンプ場、飛行機内 &#8212; 電波がなくても使えます。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#x1F534;</div>
+        <h3>ナイトモード</h3>
+        <p>画面を赤色系に切り替え、暗順応を妨げません。天体観測のお供に最適です。</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- How it works / Tech -->
+  <div class="section">
+    <h2>Technology</h2>
+    <p class="lead">天文学の計算理論をポケットに。</p>
+    <div class="tech-grid">
+      <div class="tech-card">
+        <h3>Coordinate Transform</h3>
+        <p>恒星時計算(IAU 1982) &rarr; 赤道座標を地平座標に変換 &rarr; センサー姿勢行列で端末座標系に投影。天球上の星の位置を、あなたのスマホの画面座標にマッピングします。</p>
+      </div>
+      <div class="tech-card">
+        <h3>Sensor Fusion</h3>
+        <p>加速度センサ + ジャイロセンサ + 磁気センサを相補フィルター(&alpha;=0.98)で融合。ジャイロの高速応答と加速度/磁気の安定性を両立し、滑らかなトラッキングを実現。</p>
+      </div>
+      <div class="tech-card">
+        <h3>Gnomonic Projection</h3>
+        <p>3D端末座標から2Dスクリーン座標への変換に心射影(Gnomonic Projection)を採用。広い視野角(30&deg;~120&deg;)でも直線が直線として描画される自然な見え方。</p>
+      </div>
+      <div class="tech-card">
+        <h3>Stellar Color</h3>
+        <p>B-V色指数 &rarr; 色温度(Ballesteros 2012) &rarr; RGB値(Tanner Helland)で恒星の実際の色を忠実に再現。青白いシリウスから赤いベテルギウスまで。</p>
+      </div>
+      <div class="tech-card">
+        <h3>Kepler Solver</h3>
+        <p>NASA JPL低精度軌道要素とケプラー方程式(Newton-Raphson法)で惑星位置を算出。地心黄道座標への変換まですべて端末内で実行。精度 &pm;1&deg;。</p>
+      </div>
+      <div class="tech-card">
+        <h3>Flutter + Custom Painter</h3>
+        <p>Flutter の CustomPainter で 2D Canvas に直接描画。Riverpod による状態管理と 60fps の滑らかなレンダリングを両立。</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Plans -->
+  <div class="section">
+    <h2>Plans</h2>
+    <p class="lead">全機能無料。Proは広告なしで、もっと没入。</p>
+    <div class="plans">
+      <div class="plan-card">
+        <div class="plan-name">Free</div>
+        <div class="plan-price">&#165;0</div>
+        <div class="plan-desc">全機能を無料で利用可能</div>
+        <ul class="plan-features">
+          <li>AR スカイビュー</li>
+          <li>9,096 恒星 + 88 星座</li>
+          <li>惑星位置表示</li>
+          <li>検索 &amp; ナビゲーション</li>
+          <li>時刻シミュレーション</li>
+          <li>完全オフライン動作</li>
+        </ul>
+      </div>
+      <div class="plan-card pro">
+        <div class="plan-name">Pro</div>
+        <div class="plan-price">&#165;700 <span>買い切り</span></div>
+        <div class="plan-desc">一度の購入でずっと広告なし</div>
+        <ul class="plan-features">
+          <li>Free の全機能</li>
+          <li>広告を完全に非表示</li>
+          <li>アカウント登録不要</li>
+          <li>機種変更時も復元可能</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Footer -->
+  <footer>
+    <div class="links">
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="terms.html">利用規約</a>
+      <a href="support.html">サポート</a>
+    </div>
+    <p class="copy">&copy; 2026 Star Parade. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

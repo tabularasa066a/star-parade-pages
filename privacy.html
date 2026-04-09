@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>プライバシーポリシー - Star Parade</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0A0A1A;
+      color: #E0E0E0;
+      line-height: 1.8;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 48px 24px; }
+    h1 { font-size: 1.8em; margin-bottom: 4px; color: #fff; }
+    h2 { font-size: 1.15em; margin-top: 36px; margin-bottom: 10px; color: #0A84FF; border-bottom: 1px solid #1C1C2E; padding-bottom: 6px; }
+    h3 { font-size: 1em; margin-top: 20px; margin-bottom: 8px; color: #ccc; }
+    p { margin-bottom: 14px; font-size: 0.95em; }
+    li { margin-bottom: 8px; font-size: 0.95em; }
+    ul { margin-left: 20px; margin-bottom: 16px; }
+    a { color: #0A84FF; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .back { margin-top: 48px; }
+    .date { color: #8E8E93; font-size: 0.85em; margin-bottom: 28px; }
+    .highlight { background: #1C1C2E; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+    .highlight p { margin-bottom: 4px; }
+    table { width: 100%; border-collapse: collapse; margin: 12px 0 20px; font-size: 0.9em; }
+    th, td { text-align: left; padding: 8px 12px; border-bottom: 1px solid #2C2C3E; }
+    th { color: #8E8E93; font-weight: normal; font-size: 0.85em; }
+    footer { margin-top: 64px; color: #8E8E93; font-size: 0.8em; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>プライバシーポリシー</h1>
+    <p class="date">施行日: 2026年4月9日 &nbsp;|&nbsp; 最終更新日: 2026年4月9日</p>
+
+    <p>本プライバシーポリシーは、Star Parade（以下「本アプリ」）における個人情報およびデータの取り扱いについて説明するものです。</p>
+
+    <div class="highlight">
+      <p><strong>要約:</strong> Star Parade はオフラインで動作する星空観察アプリです。アカウント登録は不要で、ユーザーの個人情報を収集・送信しません。Freeプランでのみ Google AdMob による広告が表示され、その場合に限り広告関連の情報が Google に送信されます。</p>
+    </div>
+
+    <!-- 1 -->
+    <h2>1. アプリの基本設計</h2>
+    <p>本アプリは<strong>完全オフライン動作</strong>を基本設計方針としています。星表データ（Bright Star Catalogue, 約9,000星）・星座データ・惑星軌道要素はすべてアプリに内蔵されており、天体の位置計算もすべて端末内で実行されます。</p>
+    <p>本アプリは<strong>アカウント登録を一切必要としません</strong>。メールアドレス、パスワード、氏名等の個人情報の入力を求めることはありません。</p>
+
+    <!-- 2 -->
+    <h2>2. 端末内で処理される情報</h2>
+    <p>以下の情報は、アプリの機能を実現するために端末内でのみ使用され、<strong>外部サーバーへの送信は一切行いません</strong>:</p>
+
+    <table>
+      <tr><th>情報</th><th>用途</th><th>保存先</th></tr>
+      <tr>
+        <td>GPS位置情報（緯度・経度）</td>
+        <td>観測地点の決定。地方恒星時の計算に使用し、正確な星の位置を表示する</td>
+        <td>端末メモリ内のみ（永続保存しない）</td>
+      </tr>
+      <tr>
+        <td>加速度・ジャイロ・磁気センサ</td>
+        <td>端末の姿勢（方位角・高度角・ロール）を推定し、かざした方向の星空を表示する</td>
+        <td>端末メモリ内のみ（永続保存しない）</td>
+      </tr>
+      <tr>
+        <td>アプリ設定</td>
+        <td>表示設定（星座線ON/OFF、等級フィルタ、ナイトモード等）の保持</td>
+        <td>端末内ローカルストレージ（SharedPreferences）</td>
+      </tr>
+      <tr>
+        <td>お気に入り</td>
+        <td>ユーザーが登録した星・星座の一覧</td>
+        <td>端末内ローカルストレージ（SharedPreferences）</td>
+      </tr>
+      <tr>
+        <td>購入状態</td>
+        <td>Proプランの有効/無効を端末内にキャッシュ</td>
+        <td>端末内ローカルストレージ（SharedPreferences）</td>
+      </tr>
+    </table>
+
+    <p>GPS位置情報はアプリ起動時に1回取得します。取得を許可しない場合でも、デフォルトの位置（東京）または手動入力の位置情報で全機能をご利用いただけます。</p>
+
+    <!-- 3 -->
+    <h2>3. 広告（Freeプラン）</h2>
+    <p>本アプリのFreeプラン（無料）では、<strong>Google AdMob</strong> を利用したバナー広告を表示します。広告はインターネット接続が可能な場合にのみ表示され、オフライン環境では広告は表示されません。</p>
+
+    <h3>3.1 AdMob が収集する情報</h3>
+    <p>Google AdMob は、広告配信の最適化のために以下の情報を自動的に収集する場合があります:</p>
+    <ul>
+      <li><strong>広告識別子</strong>: iOS の IDFA（Identifier for Advertisers）、Android の GAID（Google Advertising ID）</li>
+      <li><strong>端末情報</strong>: OS種別・バージョン、端末モデル、画面サイズ、言語設定</li>
+      <li><strong>IPアドレス</strong>: おおよその地域推定に使用</li>
+      <li><strong>広告インタラクション</strong>: 広告の表示・クリックに関する情報</li>
+    </ul>
+    <p>これらの情報は Google によって収集・処理されます。詳細は <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google プライバシーポリシー</a> および <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">Google パートナーサイトのデータ利用</a> をご参照ください。</p>
+
+    <h3>3.2 広告の無効化</h3>
+    <p><strong>Proプラン（¥700 買い切り）</strong>をご購入いただくと、広告は完全に非表示となり、AdMob SDK による上記データ収集も行われなくなります。</p>
+    <p>また、端末の設定から広告識別子のリセットや追跡制限を行うことで、広告のパーソナライズを制限できます:</p>
+    <ul>
+      <li><strong>iOS</strong>: 設定 → プライバシーとセキュリティ → トラッキング</li>
+      <li><strong>Android</strong>: 設定 → Google → 広告 → 広告IDをリセット / 広告のカスタマイズをオプトアウト</li>
+    </ul>
+
+    <!-- 4 -->
+    <h2>4. アプリ内課金（Proプラン）</h2>
+    <p>Proプランの購入は、Apple App Store または Google Play Store のプラットフォームを通じて行われる<strong>買い切り型（Non-consumable）</strong>の課金です。</p>
+    <ul>
+      <li>本アプリは決済情報（クレジットカード番号等）を一切取得しません。決済処理はすべて各ストアが行います。</li>
+      <li>購入履歴は各ストアのアカウント（Apple ID / Google アカウント）に紐づきます。本アプリ独自のアカウント登録は不要です。</li>
+      <li>機種変更時は、同じストアアカウントで「購入を復元」することで再度Proプランを有効化できます。</li>
+    </ul>
+
+    <!-- 5 -->
+    <h2>5. 本アプリが収集しないもの</h2>
+    <p>本アプリは以下の情報を<strong>収集・送信・保存しません</strong>:</p>
+    <ul>
+      <li>氏名、メールアドレス、電話番号等の個人識別情報</li>
+      <li>アカウント情報（ログイン/パスワード）</li>
+      <li>カメラの映像・写真</li>
+      <li>連絡先、カレンダー、通話履歴</li>
+      <li>端末内の他アプリの情報</li>
+      <li>利用状況の分析データ（アナリティクス）</li>
+    </ul>
+
+    <!-- 6 -->
+    <h2>6. 第三者サービス</h2>
+    <p>本アプリが利用する第三者サービスは以下の通りです:</p>
+
+    <table>
+      <tr><th>サービス</th><th>提供者</th><th>用途</th><th>対象</th></tr>
+      <tr>
+        <td>Google AdMob</td>
+        <td>Google LLC</td>
+        <td>バナー広告の配信</td>
+        <td>Freeプランユーザーのみ</td>
+      </tr>
+      <tr>
+        <td>App Store / Google Play</td>
+        <td>Apple Inc. / Google LLC</td>
+        <td>アプリの配信およびアプリ内課金の処理</td>
+        <td>全ユーザー</td>
+      </tr>
+    </table>
+
+    <p>各サービスのプライバシーポリシー:</p>
+    <ul>
+      <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google プライバシーポリシー</a></li>
+      <li><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple プライバシーポリシー</a></li>
+    </ul>
+
+    <!-- 7 -->
+    <h2>7. お子様のプライバシー</h2>
+    <p>本アプリは特定の年齢層を対象としたものではありません。13歳未満のお子様から意図的に個人情報を収集することはありません。保護者の方で懸念がある場合は、下記の連絡先までお問い合わせください。</p>
+
+    <!-- 8 -->
+    <h2>8. データの削除</h2>
+    <p>本アプリのデータはすべて端末内に保存されています。アプリをアンインストールすることで、保存されたすべてのデータ（設定、お気に入り、購入キャッシュ）が削除されます。</p>
+    <p>広告識別子に関連するデータの削除については、端末の設定（上記 3.2 参照）または <a href="https://myadcenter.google.com/" target="_blank" rel="noopener">Google 広告設定</a> から管理できます。</p>
+
+    <!-- 9 -->
+    <h2>9. プライバシーポリシーの変更</h2>
+    <p>本プライバシーポリシーは、法令の改正やアプリの機能変更に伴い更新される場合があります。重要な変更がある場合は、本ページにて通知するとともに、アプリのアップデート時にお知らせします。</p>
+
+    <!-- 10 -->
+    <h2>10. お問い合わせ</h2>
+    <p>プライバシーに関するご質問・ご要望・データ削除のリクエスト等がございましたら、以下までご連絡ください:</p>
+    <ul>
+      <li><a href="support.html">サポートページ</a></li>
+    </ul>
+
+    <p class="back"><a href="index.html">&larr; トップに戻る</a></p>
+
+    <footer>
+      <p>&copy; 2026 Star Parade. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
