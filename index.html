@@ -57,19 +57,16 @@
       margin-top: 36px;
       position: relative;
     }
-    .hero .cta a {
-      display: inline-block;
-      padding: 14px 36px;
-      border-radius: 28px;
-      font-size: 1em;
-      font-weight: 600;
-      text-decoration: none;
-      margin: 0 8px;
-      transition: transform 0.15s, box-shadow 0.15s;
+    .store-badges {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
     }
-    .hero .cta a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.4); }
-    .btn-primary { background: #0A84FF; color: #fff; }
-    .btn-secondary { background: #1C1C2E; color: #0A84FF; border: 1px solid #2C2C3E; }
+    .store-badge { display: inline-block; transition: transform 0.15s, opacity 0.15s; }
+    .store-badge:hover { transform: translateY(-2px); opacity: 0.85; }
+    .store-badge img { height: 48px; }
 
     /* Sections */
     .section { max-width: 800px; margin: 0 auto; padding: 64px 24px; }
@@ -179,7 +176,7 @@
     /* Responsive */
     @media (max-width: 600px) {
       .hero h1 { font-size: 2.2em; }
-      .hero .cta a { display: block; margin: 8px auto; max-width: 260px; }
+      .store-badges { flex-direction: column; align-items: center; }
       .section { padding: 48px 20px; }
       .features { grid-template-columns: 1fr; }
     }
@@ -192,8 +189,17 @@
     <h1>Star Parade</h1>
     <p class="tagline">スマホをかざして、今夜の星を見つけよう</p>
     <div class="cta">
-      <a href="#" class="btn-primary">App Store</a>
-      <a href="#" class="btn-secondary">Google Play</a>
+      <div class="store-badges">
+        <!-- TODO: ストア公開後に実際のURLに差し替え -->
+        <a href="#" class="store-badge">
+          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+               alt="App Storeからダウンロード">
+        </a>
+        <a href="#" class="store-badge">
+          <img src="https://play.google.com/intl/en_us/badges/static/images/badges/ja_badge_web_generic.png"
+               alt="Google Playで手に入れよう">
+        </a>
+      </div>
     </div>
   </div>
 
