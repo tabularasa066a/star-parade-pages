@@ -25,7 +25,7 @@ git init
 git add .
 git commit -m "feat: GitHub Pages 初期セットアップ"
 git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/star-parade-pages.git
+git remote add origin https://github.com/tabularasa066a/star-parade-pages.git
 git push -u origin main
 ```
 
@@ -39,20 +39,20 @@ git push -u origin main
 数分後に以下の URL で公開される:
 
 ```
-https://YOUR_USERNAME.github.io/star-parade-pages/
+https://tabularasa066a.github.io/star-parade-pages/
 ```
 
 ### 3. App Store / Google Play に URL を登録
 
 | ストア | 設定箇所 | URL |
 |--------|---------|-----|
-| App Store Connect | App Information → Privacy Policy URL | `https://YOUR_USERNAME.github.io/star-parade-pages/privacy.html` |
-| App Store Connect | App Information → Support URL | `https://YOUR_USERNAME.github.io/star-parade-pages/support.html` |
+| App Store Connect | App Information → Privacy Policy URL | `https://tabularasa066a.github.io/star-parade-pages/privacy.html` |
+| App Store Connect | App Information → Support URL | `https://tabularasa066a.github.io/star-parade-pages/support.html` |
 | Google Play Console | Store Settings → App Details | 同上 |
 
 ## カスタマイズ
 
-- `YOUR_USERNAME` を実際の GitHub ユーザー名に置き換えてください
+- `tabularasa066a` を実際の GitHub ユーザー名に置き換えてください
 - `support@example.com` をサポート用メールアドレスに変更してください
 - 必要に応じてデザインやコンテンツを調整してください
 
